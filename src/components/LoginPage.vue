@@ -39,7 +39,6 @@
   pointer-events: none;
 }
 .log_in {
-  border: 3px solid white;
   position: absolute;
   color: white;
   padding: 40px;
@@ -47,6 +46,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  border: 3px solid white;
 }
 </style>
 

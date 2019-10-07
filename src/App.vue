@@ -1,40 +1,35 @@
 <template>
   <v-app>
     <template v-if="is_logged_in">
-      <v-app-bar color="deep-purple accent-4" dense dark>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-        <v-toolbar-title>Page title</v-toolbar-title>
+      <v-app-bar class="toolbar">
+        <v-toolbar-title class="text">Do-It</v-toolbar-title>
 
         <div class="flex-grow-1"></div>
 
         <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
+          <v-text-field v-model="search" label="Search" single-line hide-details ></v-text-field>
+          <v-icon style="color:white; margin-right: 350px;">mdi-magnify</v-icon>
         </v-btn>
 
         <v-menu left bottom>
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
+              <v-icon style="color:white; margin-right: 160px;">mdi-dots-vertical</v-icon>
             </v-btn>
           </template>
 
           <v-list>
-            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+            <v-list-item v-for=" n in 5" :key="n" @click="() => {}">
               <v-list-item-title>Option {{ n }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </v-app-bar>
-      <v-navigation-drawer permanent>
+
+      <v-navigation-drawer permanent style = "background-color: #A9A9A9;">
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="title">Application</v-list-item-title>
-            <v-list-item-subtitle>subtext</v-list-item-subtitle>
+            <v-list-item-title class="title">To-Do</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -64,9 +59,6 @@
         </v-container>
       </v-content>
 
-      <v-footer app>
-        <!-- -->
-      </v-footer>
     </template>
     <template v-else>
       <div class="background">
@@ -81,12 +73,10 @@ import login from "./components/LoginPage";
 export default {
   name: "App",
   data: () => ({
-    is_logged_in: false,
-
+    is_logged_in: true,
     items: [
-      { title: "Dashboard", icon: "mdi-view-dashboard" },
-      { title: "Photos", icon: "mdi-image" },
-      { title: "About", icon: "mdi-help-box" }
+      { title: "Notes", icon: "mdi-view-dashboard" },
+      { title: "Lists", icon: "mdi-image" }
     ],
     right: null
   }),
@@ -101,8 +91,19 @@ export default {
   background-image: url("https://images.wallpaperscraft.com/image/leaves_green_plant_126669_3840x2160.jpg");
   width: 100%;
   height: 100%;
-  background-size: cover; /* or contain depending on what you want */
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.toolbar {
+  background-image: url("https://images.wallpaperscraft.com/image/leaves_green_plant_126669_3840x2160.jpg");
+  opacity: 0.7;
+}
+
+.text {
+  color: white;
+  font-weight: bold;
+  margin: 80px;
 }
 </style>
