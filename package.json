@@ -14,7 +14,7 @@
     "core-js": "^2.6.5",
     "fontawesome": "^5.6.3",
     "install": "^0.13.0",
-    "npm": "^6.11.3",
+    "npm": "^6.13.4",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
